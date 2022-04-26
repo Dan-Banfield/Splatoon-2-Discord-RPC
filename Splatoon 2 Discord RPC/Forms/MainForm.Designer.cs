@@ -29,13 +29,39 @@ namespace Splatoon_2_Discord_RPC
         /// </summary>
         private void InitializeComponent()
         {
+            this.nsTheme = new NSTheme();
             this.SuspendLayout();
+            // 
+            // nsTheme
+            // 
+            this.nsTheme.AccentOffset = 0;
+            this.nsTheme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.nsTheme.BorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.nsTheme.Colors = new Bloom[0];
+            this.nsTheme.Customization = "";
+            this.nsTheme.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nsTheme.Font = new System.Drawing.Font("Verdana", 8F);
+            this.nsTheme.Image = null;
+            this.nsTheme.Location = new System.Drawing.Point(0, 0);
+            this.nsTheme.Movable = true;
+            this.nsTheme.Name = "nsTheme";
+            this.nsTheme.NoRounding = false;
+            this.nsTheme.Sizable = true;
+            this.nsTheme.Size = new System.Drawing.Size(719, 333);
+            this.nsTheme.SmartBounds = true;
+            this.nsTheme.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.nsTheme.TabIndex = 0;
+            this.nsTheme.Text = "Splatoon 2 Discord RPC";
+            this.nsTheme.TransparencyKey = System.Drawing.Color.Empty;
+            this.nsTheme.Transparent = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(719, 333);
+            this.Controls.Add(this.nsTheme);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Splatoon 2 Discord RPC";
@@ -44,6 +70,8 @@ namespace Splatoon_2_Discord_RPC
         }
 
         #endregion
+
+        private NSTheme nsTheme;
     }
 }
 
