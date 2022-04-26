@@ -26,8 +26,49 @@ namespace Splatoon_2_Discord_RPC
 
         private void setStatusButton_Click(object sender, System.EventArgs e)
         {
-            SetValues();
-            MessageBox.Show($"{SelectedGameMode} {SelectedMatchStatus} {SelectedImage}");
+            DiscordRPCManager discordRPCManager = new DiscordRPCManager();
+
+            if (discordRPCManager.ConnectToDiscord())
+            {
+                string gameMode = string.Empty;
+                string status = string.Empty;
+
+                switch (SelectedGameMode)
+                {
+                    case GameMode.TurfWar:
+                        gameMode = "Turf War";
+                        break;
+                    case GameMode.Ranked:
+                        gameMode = "Ranked";
+                        break;
+                    case GameMode.League:
+                        gameMode = "League";
+                        break;
+                    case GameMode.PrivateBattle:
+                        gameMode = "Private Battle";
+                        break;
+                    case GameMode.SalmonRun:
+                        gameMode = "Salmon Run";
+                        break;
+                }
+
+                switch (SelectedMatchStatus)
+                {
+                    case MatchStatus.Idle:
+                        status = "Idle";
+                        break;
+                    case MatchStatus.InGame:
+                        status = "In-Game";
+                        break;
+                    case MatchStatus.Matchmaking:
+                        status = "Matchmaking";
+                        break;
+                }
+
+                discordRPCManager.SetStatus(gameMode, status);
+                return;
+            }
+            MessageBox.Show("Failed to connect to Discord!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         #endregion
