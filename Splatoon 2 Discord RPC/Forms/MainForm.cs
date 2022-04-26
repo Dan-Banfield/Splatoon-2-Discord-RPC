@@ -68,6 +68,7 @@ namespace Splatoon_2_Discord_RPC
                 }
 
                 discordRPCManager.SetStatus(gameMode, status);
+                MessageBox.Show("Status set successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             MessageBox.Show("Failed to connect to Discord!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
