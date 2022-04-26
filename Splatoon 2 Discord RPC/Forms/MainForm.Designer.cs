@@ -47,6 +47,7 @@ namespace Splatoon_2_Discord_RPC
             this.rpcImagePanel = new System.Windows.Forms.Panel();
             this.imageOneRadioButton = new NSRadioButton();
             this.imageOnePictureBox = new System.Windows.Forms.PictureBox();
+            this.setStatusButton = new NSButton();
             this.nsTheme.SuspendLayout();
             this.optionsGroupBox.SuspendLayout();
             this.gameModeGroupBox.SuspendLayout();
@@ -115,6 +116,7 @@ namespace Splatoon_2_Discord_RPC
             this.optionsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.optionsGroupBox.Controls.Add(this.setStatusButton);
             this.optionsGroupBox.Controls.Add(this.rpcImageGroupBox);
             this.optionsGroupBox.Controls.Add(this.matchStatusGroupBox);
             this.optionsGroupBox.Controls.Add(this.gameModeGroupBox);
@@ -284,6 +286,14 @@ namespace Splatoon_2_Discord_RPC
             this.imageOnePictureBox.TabIndex = 4;
             this.imageOnePictureBox.TabStop = false;
             // 
+            // setStatusButton
+            // 
+            this.setStatusButton.Location = new System.Drawing.Point(257, 218);
+            this.setStatusButton.Name = "setStatusButton";
+            this.setStatusButton.Size = new System.Drawing.Size(228, 55);
+            this.setStatusButton.TabIndex = 7;
+            this.setStatusButton.Text = "Set Status!";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,6 +337,7 @@ namespace Splatoon_2_Discord_RPC
         private System.Windows.Forms.Panel rpcImagePanel;
         private NSRadioButton imageOneRadioButton;
         private System.Windows.Forms.PictureBox imageOnePictureBox;
+        private NSButton setStatusButton;
     }
 }
 
