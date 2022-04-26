@@ -26,6 +26,8 @@ namespace Splatoon_2_Discord_RPC
 
         private void setStatusButton_Click(object sender, System.EventArgs e)
         {
+            SetValues();
+
             DiscordRPCManager discordRPCManager = new DiscordRPCManager();
 
             if (discordRPCManager.ConnectToDiscord())
