@@ -29,6 +29,7 @@ namespace Splatoon_2_Discord_RPC
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.nsTheme = new NSTheme();
             this.optionsGroupBox = new NSGroupBox();
             this.setStatusButton = new NSButton();
@@ -302,6 +303,7 @@ namespace Splatoon_2_Discord_RPC
             this.ClientSize = new System.Drawing.Size(778, 335);
             this.Controls.Add(this.nsTheme);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(778, 335);
             this.MinimumSize = new System.Drawing.Size(719, 333);
             this.Name = "MainForm";
