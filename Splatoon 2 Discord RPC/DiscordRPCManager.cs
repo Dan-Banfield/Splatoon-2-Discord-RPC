@@ -5,7 +5,7 @@ namespace Splatoon_2_Discord_RPC
 {
     public class DiscordRPCManager
     {
-        private DiscordRpcClient discordRpcClient;
+        public DiscordRpcClient discordRpcClient;
 
         private const string APPLICATION_ID = "968592663559413901";
 
@@ -29,24 +29,35 @@ namespace Splatoon_2_Discord_RPC
             catch { return false; }
         }
 
-        public void SetStatus(string title, string subTitle)
+        public bool Connected()
         {
-            discordRpcClient.SetPresence(new RichPresence() 
+            return discordRpcClient.IsInitialized;
+        }
+
+        public bool SetStatus(string title, string subTitle)
+        {
+            try
             {
-                Details = title,
-                State = subTitle,
-
-                Timestamps = new Timestamps() 
+                discordRpcClient.ClearPresence();
+                discordRpcClient.SetPresence(new RichPresence()
                 {
-                    Start = DateTime.UtcNow
-                },
+                    Details = title,
+                    State = subTitle,
 
-                Assets = new Assets() 
-                {
-                    LargeImageKey = "image-big-splatoon2",
-                    LargeImageText = "Splatoon 2"
-                }
-            });
+                    Timestamps = new Timestamps()
+                    {
+                        Start = DateTime.UtcNow
+                    },
+
+                    Assets = new Assets()
+                    {
+                        LargeImageKey = "image-big-splatoon2",
+                        LargeImageText = "Splatoon 2"
+                    }
+                });
+                return true;
+            }
+            catch { return false; }
         }
     }
 }

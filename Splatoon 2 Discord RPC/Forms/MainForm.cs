@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
+using static Splatoon_2_Discord_RPC.Generics;
 
 namespace Splatoon_2_Discord_RPC
 {
@@ -15,10 +17,13 @@ namespace Splatoon_2_Discord_RPC
         private enum Image { Image1 }
         private Image SelectedImage = Image.Image1;
 
+        private DiscordRPCManager discordRPCManager;
+
         #endregion
 
         public MainForm()
         {
+            AppDomain.CurrentDomain.UnhandledException += (o, e) => MessageBox.Show("An error has occured! Please restart the application and try again.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             InitializeComponent();
         }
 
@@ -28,60 +33,69 @@ namespace Splatoon_2_Discord_RPC
         {
             SetValues();
 
-            DiscordRPCManager discordRPCManager = new DiscordRPCManager();
+            string gameMode = StringGameMode();
+            string status = StringStatus();
 
-            if (discordRPCManager.ConnectToDiscord())
-            {
-                string gameMode = string.Empty;
-                string status = string.Empty;
-
-                switch (SelectedGameMode)
-                {
-                    case GameMode.TurfWar:
-                        gameMode = "Turf War";
-                        break;
-                    case GameMode.Ranked:
-                        gameMode = "Ranked";
-                        break;
-                    case GameMode.League:
-                        gameMode = "League";
-                        break;
-                    case GameMode.PrivateBattle:
-                        gameMode = "Private Battle";
-                        break;
-                    case GameMode.SalmonRun:
-                        gameMode = "Salmon Run";
-                        break;
-                }
-
-                switch (SelectedMatchStatus)
-                {
-                    case MatchStatus.Idle:
-                        status = "Idle";
-                        break;
-                    case MatchStatus.InGame:
-                        status = "In-Game";
-                        break;
-                    case MatchStatus.Matchmaking:
-                        status = "Matchmaking";
-                        break;
-                }
-
-                discordRPCManager.SetStatus(gameMode, status);
-                MessageBox.Show("Status set successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            MessageBox.Show("Failed to connect to Discord!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            ConnectAndSet(gameMode, status);
         }
 
         #endregion
 
         #region Methods
 
+        private void ConnectAndSet(string gameMode, string status)
+        {
+            if (discordRPCManager == null) discordRPCManager = new DiscordRPCManager();
+
+            if (!discordRPCManager.Connected())
+            {
+                if (!discordRPCManager.ConnectToDiscord()) { MessageBoxes.ShowErrorMessage("Failed to connect to Discord!"); return; }
+            }
+
+            if (discordRPCManager.SetStatus(gameMode, status))
+            {
+                MessageBoxes.ShowInformationMessage("Status set successfully!");
+                return;
+            }
+            MessageBoxes.ShowErrorMessage("Failed to set status!");
+        }
+
         private void SetValues() 
         {
             SelectedGameMode = GetSelectedGameMode();
             SelectedMatchStatus = GetSelectedMatchStatus();
+        }
+
+        private string StringGameMode()
+        {
+            switch (SelectedGameMode)
+            {
+                case GameMode.TurfWar:
+                    return "Turf War";
+                case GameMode.Ranked:
+                    return "Ranked";
+                case GameMode.League:
+                    return "League";
+                case GameMode.PrivateBattle:
+                    return "Private Battle";
+                case GameMode.SalmonRun:
+                    return "Salmon Run";
+            }
+            return "Turf War";
+        }
+
+        private string StringStatus()
+        {
+            switch (SelectedMatchStatus)
+            {
+                case MatchStatus.Idle:
+                    return "Idle";
+                case MatchStatus.InGame:
+                    return "In Game";
+                case MatchStatus.Matchmaking:
+                    return "Matchmaking";
+            }
+            return "Idle";
         }
 
         private GameMode GetSelectedGameMode()
