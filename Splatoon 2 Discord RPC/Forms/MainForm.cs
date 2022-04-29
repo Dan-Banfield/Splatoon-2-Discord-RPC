@@ -23,7 +23,7 @@ namespace Splatoon_2_Discord_RPC
 
         public MainForm()
         {
-            AppDomain.CurrentDomain.UnhandledException += (o, e) => MessageBox.Show("An error has occured! Please restart the application and try again.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            AppDomain.CurrentDomain.UnhandledException += (o, e) => { MessageBox.Show("An error has occured! Please restart the application and try again.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error); System.Diagnostics.Process.GetCurrentProcess().Kill(); };
             InitializeComponent();
         }
 

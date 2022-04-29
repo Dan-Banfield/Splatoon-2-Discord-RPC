@@ -40,6 +40,7 @@ namespace Splatoon_2_Discord_RPC
             this.imageOnePictureBox = new System.Windows.Forms.PictureBox();
             this.imageOneRadioButton = new NSRadioButton();
             this.matchStatusGroupBox = new NSGroupBox();
+            this.lookingForFriendsRadioButton = new NSRadioButton();
             this.matchmakingRadioButton = new NSRadioButton();
             this.inGameRadioButton = new NSRadioButton();
             this.idleRadioButton = new NSRadioButton();
@@ -51,7 +52,6 @@ namespace Splatoon_2_Discord_RPC
             this.turfWarRadioButton = new NSRadioButton();
             this.minimizeButton = new NSControlButton();
             this.closeButton = new NSControlButton();
-            this.lookingForFriendsRadioButton = new NSRadioButton();
             this.nsTheme.SuspendLayout();
             this.optionsGroupBox.SuspendLayout();
             this.rpcImageGroupBox.SuspendLayout();
@@ -198,11 +198,21 @@ namespace Splatoon_2_Discord_RPC
             this.matchStatusGroupBox.Text = "Match Status";
             this.matchStatusGroupBox.Title = "Match Status";
             // 
+            // lookingForFriendsRadioButton
+            // 
+            this.lookingForFriendsRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lookingForFriendsRadioButton.Checked = false;
+            this.lookingForFriendsRadioButton.Location = new System.Drawing.Point(15, 131);
+            this.lookingForFriendsRadioButton.Name = "lookingForFriendsRadioButton";
+            this.lookingForFriendsRadioButton.Size = new System.Drawing.Size(198, 23);
+            this.lookingForFriendsRadioButton.TabIndex = 3;
+            this.lookingForFriendsRadioButton.Text = "Looking For Friends";
+            // 
             // matchmakingRadioButton
             // 
             this.matchmakingRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.matchmakingRadioButton.Checked = false;
-            this.matchmakingRadioButton.Location = new System.Drawing.Point(15, 104);
+            this.matchmakingRadioButton.Location = new System.Drawing.Point(15, 102);
             this.matchmakingRadioButton.Name = "matchmakingRadioButton";
             this.matchmakingRadioButton.Size = new System.Drawing.Size(198, 23);
             this.matchmakingRadioButton.TabIndex = 2;
@@ -212,7 +222,7 @@ namespace Splatoon_2_Discord_RPC
             // 
             this.inGameRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.inGameRadioButton.Checked = false;
-            this.inGameRadioButton.Location = new System.Drawing.Point(15, 75);
+            this.inGameRadioButton.Location = new System.Drawing.Point(15, 73);
             this.inGameRadioButton.Name = "inGameRadioButton";
             this.inGameRadioButton.Size = new System.Drawing.Size(198, 23);
             this.inGameRadioButton.TabIndex = 1;
@@ -222,7 +232,7 @@ namespace Splatoon_2_Discord_RPC
             // 
             this.idleRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.idleRadioButton.Checked = true;
-            this.idleRadioButton.Location = new System.Drawing.Point(15, 46);
+            this.idleRadioButton.Location = new System.Drawing.Point(15, 44);
             this.idleRadioButton.Name = "idleRadioButton";
             this.idleRadioButton.Size = new System.Drawing.Size(198, 23);
             this.idleRadioButton.TabIndex = 0;
@@ -321,16 +331,6 @@ namespace Splatoon_2_Discord_RPC
             this.closeButton.Size = new System.Drawing.Size(18, 20);
             this.closeButton.TabIndex = 0;
             this.closeButton.Text = "Close";
-            // 
-            // lookingForFriendsRadioButton
-            // 
-            this.lookingForFriendsRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lookingForFriendsRadioButton.Checked = false;
-            this.lookingForFriendsRadioButton.Location = new System.Drawing.Point(15, 131);
-            this.lookingForFriendsRadioButton.Name = "lookingForFriendsRadioButton";
-            this.lookingForFriendsRadioButton.Size = new System.Drawing.Size(198, 23);
-            this.lookingForFriendsRadioButton.TabIndex = 3;
-            this.lookingForFriendsRadioButton.Text = "Looking For Friends";
             // 
             // MainForm
             // 
