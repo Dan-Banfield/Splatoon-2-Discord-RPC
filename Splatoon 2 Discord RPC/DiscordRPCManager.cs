@@ -34,7 +34,7 @@ namespace Splatoon_2_Discord_RPC
             return discordRpcClient.IsInitialized;
         }
 
-        public bool SetStatus(string title, string subTitle)
+        public bool SetStatus(string title, string subTitle, string imageKey)
         {
             try
             {
@@ -51,8 +51,8 @@ namespace Splatoon_2_Discord_RPC
 
                     Assets = new Assets()
                     {
-                        LargeImageKey = "image-big-splatoon2",
-                        LargeImageText = "Splatoon 2"
+                        LargeImageKey = imageKey,
+                        LargeImageText = title == "Salmon Run" ? "Salmon Run" : "Splatoon 2"
                     }
                 });
                 return true;

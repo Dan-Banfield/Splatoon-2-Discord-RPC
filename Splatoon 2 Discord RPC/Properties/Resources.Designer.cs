@@ -63,6 +63,16 @@ namespace Splatoon_2_Discord_RPC.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Salmon_Run_Logo {
+            get {
+                object obj = ResourceManager.GetObject("Salmon Run Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Splatoon_2_Logo {
             get {
                 object obj = ResourceManager.GetObject("Splatoon 2 Logo", resourceCulture);

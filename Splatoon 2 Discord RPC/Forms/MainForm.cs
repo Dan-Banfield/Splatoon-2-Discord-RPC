@@ -11,10 +11,10 @@ namespace Splatoon_2_Discord_RPC
         private enum GameMode { TurfWar, Ranked, League, PrivateBattle, SalmonRun }
         private GameMode SelectedGameMode = GameMode.TurfWar;
 
-        private enum MatchStatus { Idle, InGame, Matchmaking }
+        private enum MatchStatus { Idle, InGame, Matchmaking, LookingForFriends }
         private MatchStatus SelectedMatchStatus = MatchStatus.Idle;
 
-        private enum Image { Image1 }
+        private enum Image { Image1, Image2 }
         private Image SelectedImage = Image.Image1;
 
         private DiscordRPCManager discordRPCManager;
@@ -35,15 +35,16 @@ namespace Splatoon_2_Discord_RPC
 
             string gameMode = StringGameMode();
             string status = StringStatus();
+            string imageKey = StringImage();
 
-            ConnectAndSet(gameMode, status);
+            ConnectAndSet(gameMode, status, imageKey);
         }
 
         #endregion
 
         #region Methods
 
-        private void ConnectAndSet(string gameMode, string status)
+        private void ConnectAndSet(string gameMode, string status, string imageKey)
         {
             if (discordRPCManager == null) discordRPCManager = new DiscordRPCManager();
 
@@ -52,7 +53,7 @@ namespace Splatoon_2_Discord_RPC
                 if (!discordRPCManager.ConnectToDiscord()) { MessageBoxes.ShowErrorMessage("Failed to connect to Discord!"); return; }
             }
 
-            if (discordRPCManager.SetStatus(gameMode, status))
+            if (discordRPCManager.SetStatus(gameMode, status, imageKey))
             {
                 MessageBoxes.ShowInformationMessage("Status set successfully!");
                 return;
@@ -64,6 +65,7 @@ namespace Splatoon_2_Discord_RPC
         {
             SelectedGameMode = GetSelectedGameMode();
             SelectedMatchStatus = GetSelectedMatchStatus();
+            SelectedImage = GetSelectedImage();
         }
 
         private string StringGameMode()
@@ -94,8 +96,22 @@ namespace Splatoon_2_Discord_RPC
                     return "In Game";
                 case MatchStatus.Matchmaking:
                     return "Matchmaking";
+                case MatchStatus.LookingForFriends:
+                    return "Looking For Friends";
             }
             return "Idle";
+        }
+
+        private string StringImage()
+        {
+            switch (SelectedImage)
+            {
+                case Image.Image1:
+                    return "image-big-splatoon2";
+                case Image.Image2:
+                    return "image-big-salmonrun";
+            }
+            return "image-big-splatoon2";
         }
 
         private GameMode GetSelectedGameMode()
@@ -113,7 +129,15 @@ namespace Splatoon_2_Discord_RPC
             if (idleRadioButton.Checked) return MatchStatus.Idle;
             if (inGameRadioButton.Checked) return MatchStatus.InGame;
             if (matchmakingRadioButton.Checked) return MatchStatus.Matchmaking;
+            if (lookingForFriendsRadioButton.Checked) return MatchStatus.LookingForFriends;
             return MatchStatus.Idle;
+        }
+
+        private Image GetSelectedImage()
+        {
+            if (imageOneRadioButton.Checked) return Image.Image1;
+            if (imageTwoRadioButton.Checked) return Image.Image2;
+            return Image.Image1;
         }
 
         #endregion

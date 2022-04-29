@@ -35,6 +35,8 @@ namespace Splatoon_2_Discord_RPC
             this.setStatusButton = new NSButton();
             this.rpcImageGroupBox = new NSGroupBox();
             this.rpcImagePanel = new System.Windows.Forms.Panel();
+            this.imageTwoPictureBox = new System.Windows.Forms.PictureBox();
+            this.imageTwoRadioButton = new NSRadioButton();
             this.imageOnePictureBox = new System.Windows.Forms.PictureBox();
             this.imageOneRadioButton = new NSRadioButton();
             this.matchStatusGroupBox = new NSGroupBox();
@@ -49,10 +51,12 @@ namespace Splatoon_2_Discord_RPC
             this.turfWarRadioButton = new NSRadioButton();
             this.minimizeButton = new NSControlButton();
             this.closeButton = new NSControlButton();
+            this.lookingForFriendsRadioButton = new NSRadioButton();
             this.nsTheme.SuspendLayout();
             this.optionsGroupBox.SuspendLayout();
             this.rpcImageGroupBox.SuspendLayout();
             this.rpcImagePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageTwoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageOnePictureBox)).BeginInit();
             this.matchStatusGroupBox.SuspendLayout();
             this.gameModeGroupBox.SuspendLayout();
@@ -130,12 +134,33 @@ namespace Splatoon_2_Discord_RPC
             // rpcImagePanel
             // 
             this.rpcImagePanel.AutoScroll = true;
+            this.rpcImagePanel.Controls.Add(this.imageTwoPictureBox);
+            this.rpcImagePanel.Controls.Add(this.imageTwoRadioButton);
             this.rpcImagePanel.Controls.Add(this.imageOnePictureBox);
             this.rpcImagePanel.Controls.Add(this.imageOneRadioButton);
             this.rpcImagePanel.Location = new System.Drawing.Point(12, 46);
             this.rpcImagePanel.Name = "rpcImagePanel";
             this.rpcImagePanel.Size = new System.Drawing.Size(219, 168);
             this.rpcImagePanel.TabIndex = 0;
+            // 
+            // imageTwoPictureBox
+            // 
+            this.imageTwoPictureBox.Image = global::Splatoon_2_Discord_RPC.Properties.Resources.Salmon_Run_Logo;
+            this.imageTwoPictureBox.Location = new System.Drawing.Point(42, 90);
+            this.imageTwoPictureBox.Name = "imageTwoPictureBox";
+            this.imageTwoPictureBox.Size = new System.Drawing.Size(163, 59);
+            this.imageTwoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imageTwoPictureBox.TabIndex = 6;
+            this.imageTwoPictureBox.TabStop = false;
+            // 
+            // imageTwoRadioButton
+            // 
+            this.imageTwoRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.imageTwoRadioButton.Checked = true;
+            this.imageTwoRadioButton.Location = new System.Drawing.Point(13, 108);
+            this.imageTwoRadioButton.Name = "imageTwoRadioButton";
+            this.imageTwoRadioButton.Size = new System.Drawing.Size(23, 23);
+            this.imageTwoRadioButton.TabIndex = 5;
             // 
             // imageOnePictureBox
             // 
@@ -160,6 +185,7 @@ namespace Splatoon_2_Discord_RPC
             // 
             this.matchStatusGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.matchStatusGroupBox.Controls.Add(this.lookingForFriendsRadioButton);
             this.matchStatusGroupBox.Controls.Add(this.matchmakingRadioButton);
             this.matchStatusGroupBox.Controls.Add(this.inGameRadioButton);
             this.matchStatusGroupBox.Controls.Add(this.idleRadioButton);
@@ -176,7 +202,7 @@ namespace Splatoon_2_Discord_RPC
             // 
             this.matchmakingRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.matchmakingRadioButton.Checked = false;
-            this.matchmakingRadioButton.Location = new System.Drawing.Point(15, 114);
+            this.matchmakingRadioButton.Location = new System.Drawing.Point(15, 104);
             this.matchmakingRadioButton.Name = "matchmakingRadioButton";
             this.matchmakingRadioButton.Size = new System.Drawing.Size(198, 23);
             this.matchmakingRadioButton.TabIndex = 2;
@@ -186,7 +212,7 @@ namespace Splatoon_2_Discord_RPC
             // 
             this.inGameRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.inGameRadioButton.Checked = false;
-            this.inGameRadioButton.Location = new System.Drawing.Point(15, 85);
+            this.inGameRadioButton.Location = new System.Drawing.Point(15, 75);
             this.inGameRadioButton.Name = "inGameRadioButton";
             this.inGameRadioButton.Size = new System.Drawing.Size(198, 23);
             this.inGameRadioButton.TabIndex = 1;
@@ -196,7 +222,7 @@ namespace Splatoon_2_Discord_RPC
             // 
             this.idleRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.idleRadioButton.Checked = true;
-            this.idleRadioButton.Location = new System.Drawing.Point(15, 56);
+            this.idleRadioButton.Location = new System.Drawing.Point(15, 46);
             this.idleRadioButton.Name = "idleRadioButton";
             this.idleRadioButton.Size = new System.Drawing.Size(198, 23);
             this.idleRadioButton.TabIndex = 0;
@@ -296,6 +322,16 @@ namespace Splatoon_2_Discord_RPC
             this.closeButton.TabIndex = 0;
             this.closeButton.Text = "Close";
             // 
+            // lookingForFriendsRadioButton
+            // 
+            this.lookingForFriendsRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lookingForFriendsRadioButton.Checked = false;
+            this.lookingForFriendsRadioButton.Location = new System.Drawing.Point(15, 131);
+            this.lookingForFriendsRadioButton.Name = "lookingForFriendsRadioButton";
+            this.lookingForFriendsRadioButton.Size = new System.Drawing.Size(198, 23);
+            this.lookingForFriendsRadioButton.TabIndex = 3;
+            this.lookingForFriendsRadioButton.Text = "Looking For Friends";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,6 +349,7 @@ namespace Splatoon_2_Discord_RPC
             this.optionsGroupBox.ResumeLayout(false);
             this.rpcImageGroupBox.ResumeLayout(false);
             this.rpcImagePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imageTwoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageOnePictureBox)).EndInit();
             this.matchStatusGroupBox.ResumeLayout(false);
             this.gameModeGroupBox.ResumeLayout(false);
@@ -341,6 +378,9 @@ namespace Splatoon_2_Discord_RPC
         private NSRadioButton imageOneRadioButton;
         private System.Windows.Forms.PictureBox imageOnePictureBox;
         private NSButton setStatusButton;
+        private System.Windows.Forms.PictureBox imageTwoPictureBox;
+        private NSRadioButton imageTwoRadioButton;
+        private NSRadioButton lookingForFriendsRadioButton;
     }
 }
 
