@@ -7,7 +7,7 @@ namespace Splatoon_2_Discord_RPC
     {
         public DiscordRpcClient discordRpcClient;
 
-        private const string APPLICATION_ID = "968592663559413901";
+        private const string APPLICATION_ID = "992802984650088488";
 
         public DiscordRPCManager()
         {

@@ -226,7 +226,7 @@ namespace Splatoon_2_Discord_RPC
             this.inGameRadioButton.Name = "inGameRadioButton";
             this.inGameRadioButton.Size = new System.Drawing.Size(198, 23);
             this.inGameRadioButton.TabIndex = 1;
-            this.inGameRadioButton.Text = "In Game";
+            this.inGameRadioButton.Text = "In-Game";
             // 
             // idleRadioButton
             // 

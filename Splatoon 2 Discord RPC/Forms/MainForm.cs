@@ -93,7 +93,7 @@ namespace Splatoon_2_Discord_RPC
                 case MatchStatus.Idle:
                     return "Idle";
                 case MatchStatus.InGame:
-                    return "In Game";
+                    return "In-Game";
                 case MatchStatus.Matchmaking:
                     return "Matchmaking";
                 case MatchStatus.LookingForFriends:
